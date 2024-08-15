@@ -17,4 +17,19 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Deportes()
+    {
+
+    }
+
+    public IActionResult Paises()
+    {
+
+    }
+
+    public IActionResult VerDetalleDeporte(int idDeporte)
+    {
+        
+    }
 }
