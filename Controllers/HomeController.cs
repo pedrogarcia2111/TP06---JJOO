@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP06___JJOO.Models;
 
-namespace TP06___JJOO.Controllers;
+namespace TP06.Models;
 
 public class HomeController : Controller
 {
@@ -14,48 +14,88 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Deportes()
     {
+        List<Deporte> deportes = BD.ListarDeportes();
+        
+        ViewBag.Deportes = deportes;
+        
         return View();
     }
 
-    public IActionResult Deportes()
-    {
-        ViewBag.Deportes = BD.ListarDeportes();
-        return View();
-    }
+        public IActionResult Paises()
+        {
+            List<Pais> paises = BD.ListarPaises();
+            ViewBag.Paises = paises;
+            return View();
+        }
 
-    public IActionResult Paises()
-    {
-        ViewBag.Paises = BD.ListarPaises();
-        return View();
-    }
+        public IActionResult VerDetalleDeporte(int idDeporte)
+        {
+            Deporte deporte = BD.VerInfoDeporte(idDeporte);
+            List<Deportista> deportistas = BD.ListarDeportistasxDeporte(idDeporte);
 
-    public IActionResult VerDetalleDeporte(int idDeporte)
-    {
-        ViewBag.Deporte = BD.VerInfoDeporte(idDeporte);
-        ViewBag.Deportistas = BD.ListarDeportistas(idDeporte);
-        return View();
-    }
+            ViewBag.Deporte = deporte;
+            ViewBag.Deportistas = deportistas;
+            return View();
+        }
 
-    public IActionResult VerDetallePais(int idPais)
-    {
-        ViewBag.Pais = BD.VerInfoPais(idPais);
-        ViewBag.Deportistas = BD.ListarDeportistasPorPais(idPais);
-        return View();
-    }
+        public IActionResult VerDetallePais(int idPais)
+        {
+            Pais pais = BD.VerInfoPais(idPais);
+            List<Deportista> deportistas = BD.ListarDeportistasxPais(idPais);
 
-    public IActionResult VerDetalleDeportista(int idDeportista)
-    {
-        ViewBag.Deportista = BD.VerInfoDeportista(idDeportista);
-        return View();
-    }
+            ViewBag.Pais = pais;
+            ViewBag.Deportistas = deportistas;
+            return View();
+        }
 
-    public IActionResult AgregarDeportista()
-    {
-        ViewBag.Paises = BD.ListarPaises();
-        ViewBag.Deportes = BD.ListarDeportes();
-        return View();
+        public IActionResult VerDetalleDeportista(int idDeportista)
+        {
+            Deportista deportista = BD.VerInfoDeportista(idDeportista);
+            ViewBag.Deportista = deportista;
+            return View();
+        }
+
+        public IActionResult AgregarDeportista()
+        {
+            List<Pais> paises = BD.ListarPaises();
+            ViewBag.Paises = paises;
+            return View();
+        }
+
+        [HttpPost]
+[HttpPost]
+public IActionResult GuardarDeportista(Deportista deportista)
+{
+    BD.AgregarDeportista(deportista);
+
+    List<Pais> paises = BD.ListarPaises();
+    ViewBag.Paises = paises;
+
+    return View("AgregarDeportista", deportista);
+}
+
+
+       public IActionResult EliminarDeportista(int idCandidato)
+{
+    BD.EliminarDeportista(idCandidato);
+
+    List<Pais> paises = BD.ListarPaises();
+    ViewBag.Paises = paises;
+
+    return View("Index");
+}
+
+        public IActionResult Creditos()
+        {
+            return View();
+        }
     }
 
     
-}
+

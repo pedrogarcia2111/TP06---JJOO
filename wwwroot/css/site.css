@@ -21,3 +21,34 @@ footer {
   background-color: #f8f9fa;
   border-top: 1px solid #e9ecef;
 }
+
+.imglogo{
+  width: 10%;
+}
+
+.container-fluid img
+{ 
+ width: 8%;
+}
+.nav-item{
+  
+}
+
+.banner{
+  width: 100%;
+}
+header {
+  position: fixed;
+  
+  width: 100%;
+  background-color: #f8f9fa; 
+  padding: 10px 0; 
+}
+
+.titulo{
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.descripcion{
+  font-size: x-large;
+}
