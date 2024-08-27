@@ -1,0 +1,15 @@
+<div class="container mt-5 deportes-container" style="margin-top: 120px;">
+    <div class="row">
+        @foreach (Deporte deporte in ViewBag.Deportes)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 deporte-card">
+                    <img src="@deporte.Foto" class="card-img-top deporte-img" alt="@deporte.Nombre" />
+                    <div class="card-body deporte-info">
+                        <h5 class="card-title deporte-title">@deporte.Nombre</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
