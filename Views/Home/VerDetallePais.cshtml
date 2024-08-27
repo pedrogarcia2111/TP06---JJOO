@@ -1,0 +1,27 @@
+<div class="container mt-5 pais-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@ViewBag.Pais.Nombre</h2>
+            <img src="@ViewBag.Pais.Bandera" alt="@ViewBag.Pais.Nombre" class="img-fluid" />
+            <p>Fecha de Fundación: @ViewBag.Pais.FechaFundacion.ToString("dd/MM/yyyy")</p>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row mt-4">
+        <h3>Deportistas</h3>
+        @foreach (Deportista deportista in ViewBag.Deportistas)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 deportista-card">
+                    <img src="@deportista.Foto" alt="@deportista.Nombre" class="card-img-top" />
+                    <div class="card-body deportista-info">
+                        <h5 class="card-title">@deportista.Nombre @deportista.Apellido</h5>
+                        <a href="/Deportista/VerDetalleDeportista/@deportista.IdDeportista" class="btn btn-primary">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
