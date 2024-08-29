@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2>@ViewBag.Deporte.Nombre</h2>
-            <img src="@ViewBag.deporte.Foto"  class="img-fluid" />
+            <img src="@ViewBag.Deporte.Foto" class="img-fluid" />
         </div>
     </div>
 
@@ -14,10 +14,10 @@
         {
             <div class="col-md-4 mb-4">
                 <div class="card h-100 deportista-card">
-                    <img src="@deportista.Foto"class="card-img-top" />
+                    <img src="@deportista.Foto" class="card-img-top" />
                     <div class="card-body deportista-info">
                         <h5 class="card-title">@deportista.Nombre @deportista.Apellido</h5>
-                        <a href="/Deportista/VerDetalleDeportista/@deportista.IdDeportista" class="btn btn-primary">Ver Detalle</a>
+                        <a href='@Url.Action("VerDetalleDeportista", "Home", new { idDeportista = deportista.IdDeportista })' class="btn btn-primary">Ver Detalle</a>
                     </div>
                 </div>
             </div>

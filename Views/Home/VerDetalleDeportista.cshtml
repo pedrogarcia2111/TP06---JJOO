@@ -1,0 +1,26 @@
+<div class = "detallede">
+<div class="container mt-5 deportista-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@ViewBag.Deportista.Nombre @ViewBag.Deportista.Apellido</h2>
+            <img src="@ViewBag.Deportista.Foto" alt="@ViewBag.Deportista.Nombre" class="img-fluid" />
+            <p>Fecha de Nacimiento: @ViewBag.Deportista.FechaNacimiento.ToString("dd/MM/yyyy")</p>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row mt-4">
+    <div class="col-md-6">
+        <a href='@Url.Action("VerDetalleDeporte", "Home", new { idDeporte = ViewBag.Deportista.IdDeporte })' class="btn btn-primary btn-block">Ir al Deporte</a>
+    </div>
+    <div class="col-md-6">
+        <a href='@Url.Action("VerDetallePais", "Home", new { idPais = ViewBag.Deportista.IdPais })' class="btn btn-secondary btn-block">Ir al País</a>
+    </div>
+    <div class="col-md-6">
+        <a href='@Url.Action("EliminarDeportista", "Home", new { idCandidato = ViewBag.Deportista.IdDeportista })' class="btn btn-secondary btn-block">Eliminar Deportista</a>
+    </div>
+</div>
+
+</div>
+</div>

@@ -1,3 +1,4 @@
+<div class="paisdetalle">
 <div class="container mt-5 pais-container">
     <div class="row">
         <div class="col-md-12">
@@ -18,10 +19,11 @@
                     <img src="@deportista.Foto" alt="@deportista.Nombre" class="card-img-top" />
                     <div class="card-body deportista-info">
                         <h5 class="card-title">@deportista.Nombre @deportista.Apellido</h5>
-                        <a href="/Deportista/VerDetalleDeportista/@deportista.IdDeportista" class="btn btn-primary">Ver Detalle</a>
+                        <a href='@Url.Action("VerDetalleDeportista", "Home", new { idDeportista = deportista.IdDeportista })' class="btn btn-primary">Ver Detalle</a>
                     </div>
                 </div>
             </div>
         }
     </div>
+</div>
 </div>

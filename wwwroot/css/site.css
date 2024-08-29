@@ -77,3 +77,18 @@ header {
   margin-top: 8%;
   text-align: center;
 }
+.creditos{
+  margin-top: 8%;
+}
+.creditosimg {
+  border-radius: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.detallede{
+  margin-top: 8%;
+}
+.paisdetalle{
+  margin-top: 8%;
+}

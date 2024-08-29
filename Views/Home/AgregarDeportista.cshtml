@@ -1,57 +1,59 @@
 @{
     ViewBag.Title = "Agregar Deportista";
 }
-               <h1 class = "deporte">Agregar deportista</h1>
 
+<div class ="form">
+<h1 class="text-center my-4">Agregar Deportista</h1>
 
-<form action="/Deportista/GuardarDeportista" method="post" class="form">
-    <div class="form-group">
-        <label for="Nombre">Nombre</label>
-        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" required />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="GuardarDeportista" method="post">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="Nombre" placeholder="Nombre" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="Apellido" placeholder="Apellido" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <input type="date" class="form-control" name="FechaNacimiento" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="Foto" placeholder="URL de la Foto" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <select class="form-select" name="IdDeporte" required>
+                        <option value="">Selecciona un Deporte</option>
+                        @if (ViewBag.Deportes != null)
+                        {
+                            foreach (Deporte deporte in ViewBag.Deportes)
+                            {
+                                <option value="@deporte.IdDeporte">@deporte.Nombre</option>
+                            }
+                        }
+                    </select>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <select class="form-select" name="IdPais" required>
+                        <option value="">Selecciona un País</option>
+                        @if (ViewBag.Paises != null)
+                        {
+                            foreach (Pais pais in ViewBag.Paises)
+                            {
+                                <option value="@pais.IdPais">@pais.Nombre</option>
+                            }
+                        }
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100">Guardar Deportista</button>
+            </form>
+        </div>
     </div>
-    
-    <div class="form-group">
-        <label for="Apellido">Apellido</label>
-        <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="FechaNacimiento">Fecha de Nacimiento</label>
-        <input type="date" id="FechaNacimiento" name="FechaNacimiento" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="Foto">URL de la Foto</label>
-        <input type="text" id="Foto" name="Foto" placeholder="URL de la Foto" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="IdDeporte">Deporte</label>
-        <select id="IdDeporte" name="IdDeporte" required>
-            <option value="">Selecciona un Deporte</option>
-            @if (ViewBag.Deportes != null)
-            {
-                foreach (Deporte deporte in ViewBag.Deportes)
-                {
-                    <option value="@deporte.IdDeporte">@deporte.Nombre</option>
-                }
-            }
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label for="IdPais">País</label>
-        <select id="IdPais" name="IdPais" required>
-            <option value="">Selecciona un País</option>
-            @if (ViewBag.Paises != null)
-            {
-                foreach (Pais pais in ViewBag.Paises)
-                {
-                    <option value="@pais.IdPais">@pais.Nombre</option>
-                }
-            }
-        </select>
-    </div>
-    
-    <button type="submit">Guardar Deportista</button>
-</form>
+</div>
+</div>
