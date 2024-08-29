@@ -62,22 +62,22 @@ public class HomeController : Controller
         }
 
         public IActionResult AgregarDeportista()
-        {
-            List<Pais> paises = BD.ListarPaises();
-            ViewBag.Paises = paises;
-            return View();
-        }
+{
+    List<Deporte> deportes = BD.ListarDeportes(); 
+    List<Pais> paises = BD.ListarPaises();
+    
+    ViewBag.Deportes = deportes;
+    ViewBag.Paises = paises;
+    
+    return View();
+}
 
-        [HttpPost]
 [HttpPost]
 public IActionResult GuardarDeportista(Deportista deportista)
 {
     BD.AgregarDeportista(deportista);
-
-    List<Pais> paises = BD.ListarPaises();
-    ViewBag.Paises = paises;
-
-    return View("AgregarDeportista", deportista);
+    
+    return RedirectToAction("Index");
 }
 
 
@@ -95,6 +95,11 @@ public IActionResult GuardarDeportista(Deportista deportista)
         {
             return View();
         }
+
+    public IActionResult Historia()
+    {
+        return View();
+    }
     }
 
     

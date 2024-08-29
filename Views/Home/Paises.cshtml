@@ -1,15 +1,20 @@
-<div class="container mt-5 deportes-container" style="margin-top: 120px;">
-    <div class="row">
-        @foreach (Pais pais in ViewBag.Paises)
-        {
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 deporte-card">
-                    <img src="@pais.Bandera" alt="@pais.Nombre" />
-                    <div>
-                        <h5>@pais.Nombre</h5>
+<h1 class="deporte">Paises</h1>
+
+<div class="pais-card">
+    <div class="container mt-5 deportes-container" style="margin-top: 120px;">
+        <div class="row">
+            @foreach (Pais pais in ViewBag.Paises)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 deporte-card">
+                        <img src="@pais.Bandera" alt="@pais.Nombre" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">@pais.Nombre</h5>
+                            <a href='@Url.Action("VerDetallePais", new { IdPais = pais.IdPais })' class="btn btn-primary">Ver detalle</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>

@@ -42,7 +42,7 @@ header {
   
   width: 100%;
   background-color: #f8f9fa; 
-  padding: 10px 0; 
+  z-index: 1;
 }
 
 .titulo{
@@ -51,4 +51,29 @@ header {
 }
 .descripcion{
   font-size: x-large;
+}
+
+
+.deportes-cards{
+  margin-top: 6%;
+}
+.pais-card{
+  margin-top: 8%;
+}
+.historia{
+  margin-top: 8%;
+}
+.jjoohistoria {
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  width: 60%;
+}
+.form{
+  margin-top: 8%;
+
+}
+.deporte{
+  margin-top: 8%;
+  text-align: center;
 }
